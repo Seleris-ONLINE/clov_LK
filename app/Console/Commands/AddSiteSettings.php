@@ -77,6 +77,12 @@ class AddSiteSettings extends Command {
         
         $this->addSiteSetting('event_currency', 1, 'ID of the currency used for events.');
 
+        $this->addSiteSetting('site_season', 0, 'ID of the season the site is currently experiencing.');
+
+        $this->addSiteSetting('site_weather', 0, 'ID of the weather the site is currently experiencing.');
+
+        $this->addSiteSetting('site_weather_cycle', 0, '0 = Do not cycle, 1 = Daily, 2 = Weekly, 3 = Monthly');
+
         $this->addSiteSetting('event_global_score', 0, '0: Event currency is only tracked individually, 1: A global tally of all event currency is also kept.');
 
         $this->addSiteSetting('event_global_goal', 0, 'Goal for global event score. Has no effect if global event score is not 1 and/or if set to 0.');

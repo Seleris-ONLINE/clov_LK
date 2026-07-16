@@ -206,6 +206,10 @@ return [
                 'name' => 'Advent Calendars',
                 'url' => 'admin/data/advent-calendars'
             ],
+            [
+                'name' => 'Weather',
+                'url' => 'admin/weather/weathers'
+            ],
         ],
     ],
     'Raffles'    => [
