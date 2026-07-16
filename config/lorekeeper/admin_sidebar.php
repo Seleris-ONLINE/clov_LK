@@ -114,7 +114,7 @@ return [
             ],
             [
                 'name' => 'Event Settings',
-                'url' => 'admin/event-settings'
+                'url'  => 'admin/event-settings',
             ],
         ],
     ],
@@ -184,7 +184,7 @@ return [
             ],
             [
                 'name' => 'Dailies',
-                'url' => 'admin/data/dailies'
+                'url'  => 'admin/data/dailies',
             ],
             [
                 'name' => 'Currencies',
@@ -204,11 +204,11 @@ return [
             ],
             [
                 'name' => 'Advent Calendars',
-                'url' => 'admin/data/advent-calendars'
+                'url'  => 'admin/data/advent-calendars',
             ],
             [
                 'name' => 'Weather',
-                'url' => 'admin/weather/weathers'
+                'url'  => 'admin/weather/weathers',
             ],
         ],
     ],

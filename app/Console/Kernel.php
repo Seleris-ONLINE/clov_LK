@@ -30,13 +30,13 @@ class Kernel extends ConsoleKernel {
         $schedule->command('update-staff-reward-actions')
             ->daily();
         $schedule->command('update-timed-daily')
-            ->everyMinute();          
+            ->everyMinute();
         $schedule->command('cycle-site-weather')
-                ->daily();
+            ->daily();
         $schedule->command('change-site-season')
-                ->everyMinute();
+            ->everyMinute();
         $schedule->command('distribute-birthday-rewards')
-                ->monthly();
+            ->monthly();
     }
 
     /**

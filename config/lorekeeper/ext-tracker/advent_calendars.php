@@ -2,8 +2,8 @@
 
 return [
     'wiki_key' => 'Advent_Calendars',
-        'creators' => json_encode([
-            'Mercury' => 'https://github.com/itinerare/',
-        ]),
-        'version' => '1.0.1',
+    'creators' => json_encode([
+        'Mercury' => 'https://github.com/itinerare/',
+    ]),
+    'version' => '1.0.1',
 ];

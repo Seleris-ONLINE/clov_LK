@@ -238,7 +238,7 @@ Route::group(['prefix' => 'data', 'namespace' => 'Data', 'middleware' => 'power:
     Route::post('prompts/create', 'PromptController@postCreateEditPrompt');
     Route::post('prompts/edit/{id?}', 'PromptController@postCreateEditPrompt');
     Route::post('prompts/delete/{id}', 'PromptController@postDeletePrompt');
-    
+
     // DAILIES
     Route::get('dailies', 'DailyController@getIndex');
     Route::get('dailies/create', 'DailyController@getCreateDaily');
@@ -247,8 +247,8 @@ Route::group(['prefix' => 'data', 'namespace' => 'Data', 'middleware' => 'power:
     Route::post('dailies/create', 'DailyController@postCreateEditDaily');
     Route::post('dailies/edit/{id?}', 'DailyController@postCreateEditDaily');
     Route::post('dailies/delete/{id}', 'DailyController@postDeleteDaily');
-    Route::post('dailies/sort', 'DailyController@postSortDaily'); 
-    
+    Route::post('dailies/sort', 'DailyController@postSortDaily');
+
     // ADVENT CALENDARS
     Route::get('advent-calendars', 'AdventController@getAdventIndex');
     Route::get('advent-calendars/create', 'AdventController@getCreateAdvent');
@@ -312,7 +312,7 @@ Route::group(['prefix' => 'grants', 'namespace' => 'Users', 'middleware' => 'pow
 });
 
 // EVENT SETTINGS
-Route::group(['prefix' => 'event-settings', 'middleware' => 'power:edit_inventories'], function() {
+Route::group(['prefix' => 'event-settings', 'middleware' => 'power:edit_inventories'], function () {
     Route::get('/', 'EventController@getEventSettings');
     Route::get('clear', 'EventController@getClearEventCurrency');
     Route::post('clear', 'EventController@postClearEventCurrency');
@@ -320,7 +320,7 @@ Route::group(['prefix' => 'event-settings', 'middleware' => 'power:edit_inventor
 });
 
 // MASTERLIST
-Route::group(['prefix' => 'masterlist', 'namespace' => 'Characters', 'middleware' => 'power:manage_characters'], function() {
+Route::group(['prefix' => 'masterlist', 'namespace' => 'Characters', 'middleware' => 'power:manage_characters'], function () {
     Route::get('create-character', 'CharacterController@getCreateCharacter');
     Route::post('create-character', 'CharacterController@postCreateCharacter');
 
@@ -470,28 +470,25 @@ Route::group(['prefix' => 'designs', 'middleware' => 'power:manage_characters'],
 });
 Route::get('{type}/{status}', 'DesignController@getDesignIndex')->where('type', 'myo-approvals|design-approvals')->where('status', 'pending|approved|rejected');
 
+// WEATHER
 
-//WEATHER
+Route::group(['prefix' => 'weather', 'namespace' => 'Data', 'middleware' => 'power:edit_data'], function () {
+    // SEASONS
+    Route::get('seasons', 'WeatherController@getIndex');
+    Route::get('seasons/create', 'WeatherController@getCreateSeason');
+    Route::get('seasons/edit/{id}', 'WeatherController@getEditSeason');
+    Route::get('seasons/delete/{id}', 'WeatherController@getDeleteSeason');
+    Route::get('seasons/roll/{id}', 'WeatherController@getRollSeason');
+    Route::post('seasons/create', 'WeatherController@postCreateEditSeason');
+    Route::post('seasons/edit/{id?}', 'WeatherController@postCreateEditSeason');
+    Route::post('seasons/delete/{id}', 'WeatherController@postDeleteSeason');
 
-Route::group(['prefix' => 'weather', 'namespace' => 'Data', 'middleware' => 'power:edit_data'], function() {
-
- # SEASONS
- Route::get('seasons', 'WeatherController@getIndex');
- Route::get('seasons/create', 'WeatherController@getCreateSeason');
- Route::get('seasons/edit/{id}', 'WeatherController@getEditSeason');
- Route::get('seasons/delete/{id}', 'WeatherController@getDeleteSeason');
- Route::get('seasons/roll/{id}', 'WeatherController@getRollSeason');
- Route::post('seasons/create', 'WeatherController@postCreateEditSeason');
- Route::post('seasons/edit/{id?}', 'WeatherController@postCreateEditSeason');
- Route::post('seasons/delete/{id}', 'WeatherController@postDeleteSeason');
-
- # weather
-Route::get('weathers', 'WeatherController@getWeatherIndex');
-Route::get('weathers/create', 'WeatherController@getCreateWeather');
-Route::get('weathers/edit/{id}', 'WeatherController@getEditWeather');
-Route::get('weathers/delete/{id}', 'WeatherController@getDeleteWeather');
-Route::post('weathers/create', 'WeatherController@postCreateEditWeather');
-Route::post('weathers/edit/{id?}', 'WeatherController@postCreateEditWeather');
-Route::post('weathers/delete/{id}', 'WeatherController@postDeleteWeather');
-
+    // weather
+    Route::get('weathers', 'WeatherController@getWeatherIndex');
+    Route::get('weathers/create', 'WeatherController@getCreateWeather');
+    Route::get('weathers/edit/{id}', 'WeatherController@getEditWeather');
+    Route::get('weathers/delete/{id}', 'WeatherController@getDeleteWeather');
+    Route::post('weathers/create', 'WeatherController@postCreateEditWeather');
+    Route::post('weathers/edit/{id?}', 'WeatherController@postCreateEditWeather');
+    Route::post('weathers/delete/{id}', 'WeatherController@postDeleteWeather');
 });
