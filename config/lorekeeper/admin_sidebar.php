@@ -202,6 +202,10 @@ return [
                 'name' => 'Items',
                 'url'  => 'admin/data/items',
             ],
+            [
+                'name' => 'Advent Calendars',
+                'url' => 'admin/data/advent-calendars'
+            ],
         ],
     ],
     'Raffles'    => [
