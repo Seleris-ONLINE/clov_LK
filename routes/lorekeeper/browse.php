@@ -130,6 +130,10 @@ Route::group(['prefix' => 'event-tracking'], function() {
     Route::get('/', 'EventController@getEventTracking');
 });
 
+Route::group(['prefix' => __('dailies.dailies')], function() {
+    Route::get('/', 'DailyController@getIndex');
+    Route::get('{id}', 'DailyController@getDaily')->where(['id' => '[0-9]+']);
+});
 /**************************************************************************************************
     Site Pages
 **************************************************************************************************/
