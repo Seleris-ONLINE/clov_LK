@@ -48,16 +48,16 @@
                 </div>
 
                 <!--
-                        Inverse progress bar
+                            Inverse progress bar
 
-                        <div class="progress mb-2" style="height: 2em;">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ $inverseProgress }}%" aria-valuenow="{{ $inverseProgress }}" aria-valuemin="0" aria-valuemax="{{ Settings::get('event_global_goal') }}">
-                                @if ($total && Settings::get('event_global_goal') - $total->quantity > 0)
+                            <div class="progress mb-2" style="height: 2em;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ $inverseProgress }}%" aria-valuenow="{{ $inverseProgress }}" aria-valuemin="0" aria-valuemax="{{ Settings::get('event_global_goal') }}">
+                                    @if ($total && Settings::get('event_global_goal') - $total->quantity > 0)
     <h5 class="align-self-center my-2">{{ $total ? Settings::get('event_global_goal') - $total->quantity : Settings::get('event_global_goal') }}/{{ Settings::get('event_global_goal') }}</h5>
     @endif
+                                </div>
                             </div>
-                        </div>
-                    -->
+                        -->
             @else
                 <p>There is no goal set.</p>
             @endif
