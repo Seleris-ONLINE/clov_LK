@@ -617,7 +617,7 @@ Route::group(['prefix' => 'designs', 'middleware' => 'power:manage_characters'],
 Route::get('{type}/{status}', 'DesignController@getDesignIndex')->where('type', 'myo-approvals|design-approvals')->where('status', 'pending|approved|rejected');
 
 // WEATHERS
-Route::group(['prefix' => 'weather', 'namespace' => 'Data', 'middleware' => 'power:edit_data'], function() {
+Route::group(['prefix' => 'weather', 'namespace' => 'Data', 'middleware' => 'power:edit_data'], function () {
     // SEASONS
     Route::get('seasons', 'WeatherController@getIndex');
     Route::get('seasons/create', 'WeatherController@getCreateSeason');
@@ -636,7 +636,6 @@ Route::group(['prefix' => 'weather', 'namespace' => 'Data', 'middleware' => 'pow
     Route::post('weathers/create', 'WeatherController@postCreateEditWeather');
     Route::post('weathers/edit/{id?}', 'WeatherController@postCreateEditWeather');
     Route::post('weathers/delete/{id}', 'WeatherController@postDeleteWeather');
-
 });
 
 // WORLD EXPANSION

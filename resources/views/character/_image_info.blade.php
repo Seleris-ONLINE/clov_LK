@@ -71,8 +71,8 @@
                     </div>
                 @endif
                 @if ($image->character->factionSetting)
-                <div class="row no-gutters">
-                    <div class="col-lg-4 col-5">
+                    <div class="row no-gutters">
+                        <div class="col-lg-4 col-5">
                             <h5>Faction</h5>
                         </div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->character->faction ? $image->character->currentFaction : 'None' !!}{!! $character->factionRank ? ' (' . $character->factionRank->name . ')' : null !!}</div>
