@@ -116,6 +116,30 @@ return [
                 'name' => 'Event Settings',
                 'url' => 'admin/event-settings'
             ],
+            [
+                'name' => 'EXP Grants',
+                'url'  => 'admin/grants/exp',
+            ],
+            [
+                'name' => 'Stat Point Grants',
+                'url'  => 'admin/grants/points',
+            ],
+            [
+                'name' => 'Pet Grants',
+                'url'  => 'admin/grants/pets',
+            ],
+            [
+                'name' => 'Gear Grants',
+                'url'  => 'admin/grants/gear',
+            ],
+            [
+                'name' => 'Weapon Grants',
+                'url'  => 'admin/grants/weapons',
+            ],
+            [
+                'name' => 'Skill Grants',
+                'url'  => 'admin/grants/skills',
+            ],
         ],
     ],
     'Masterlist' => [
@@ -209,6 +233,51 @@ return [
             [
                 'name' => 'Weather',
                 'url' => 'admin/weather/weathers'
+            ],
+            [
+                'name' => 'Pets',
+                'url'  => 'admin/data/pets',
+            ],
+        ],
+    ],
+    'Claymores' => [
+        'power' => 'edit_claymores',
+        'links' => [
+            [
+                'name' => 'Gear',
+                'url'  => 'admin/gear',
+            ],
+            [
+                'name' => 'Weapons',
+                'url'  => 'admin/weapons',
+            ],
+            // [
+            //     'name' => 'Attacks',
+            //     'url'  => 'admin/attacks',
+            // ],
+            [
+                'name' => 'Character Classes',
+                'url'  => 'admin/character-classes',
+            ],
+            [
+                'name' => 'Character Skills',
+                'url'  => 'admin/data/skills',
+            ],
+            [
+                'name' => 'Stats',
+                'url'  => 'admin/stats',
+            ],
+            [
+                'name' => 'Character Levels',
+                'url'  => 'admin/levels/character',
+            ],
+            [
+                'name' => 'User Levels',
+                'url'  => 'admin/levels/user',
+            ],
+            [
+                'name' => 'Elements',
+                'url'  => 'admin/data/elements',
             ],
         ],
     ],

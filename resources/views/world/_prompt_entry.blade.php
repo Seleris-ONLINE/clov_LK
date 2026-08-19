@@ -1,6 +1,6 @@
 <div class="row world-entry">
     @if ($prompt->has_image)
-        <div class="col-md-3 world-entry-image"><a href="{{ $prompt->imageUrl }}" data-lightbox="entry" data-title="{{ $prompt->name }}"><img src="{{ $prompt->imageUrl }}" class="world-entry-image" /></a></div>
+        <div class="col-md-3 world-entry-image"><a href="{{ $prompt->imageUrl }}" data-lightbox="entry" data-title="{{ $prompt->name }}"><img src="{{ $prompt->imageUrl }}" class="world-entry-image" alt="{{ $prompt->name }}" /></a></div>
     @endif
     <div class="{{ $prompt->has_image ? 'col-md-9' : 'col-12' }}">
         <div class="mb-3">
@@ -45,13 +45,31 @@
                     <tbody>
                         @foreach ($prompt->rewards as $reward)
                             <tr>
-                                <td>{!! $reward->reward->displayName !!}</td>
+                                <td>{!! $reward->reward ? $reward->reward->displayName : $reward->rewardable_type !!}</td>
                                 <td>{{ $reward->quantity }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             @endif
+            <hr>
+            <h4>Skill Rewards</h4>
+            <table class="table table-sm mb-0">
+                <thead>
+                    <tr>
+                        <th width="70%">Skill</th>
+                        <th width="30%">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($prompt->skills as $skill)
+                        <tr>
+                            <td>{!! $skill->skill->displayName !!}</td>
+                            <td>{{ $skill->quantity }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
         <div class="text-right">
             @if ($prompt->end_at && $prompt->end_at->isPast())

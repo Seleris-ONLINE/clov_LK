@@ -23,6 +23,10 @@ class Kernel extends ConsoleKernel {
             ->everyMinute();
         $schedule->command('check-sales')
             ->everyMinute();
+        $schedule->command('check-pet-drops')
+            ->everyMinute();
+        $schedule->command('reset-stamina')
+            ->daily();
         $schedule->exec('rm public/images/avatars/*.tmp')
             ->daily();
         $schedule->command('update-extension-tracker')
@@ -32,11 +36,17 @@ class Kernel extends ConsoleKernel {
         $schedule->command('update-timed-daily')
             ->everyMinute();          
         $schedule->command('cycle-site-weather')
-                ->daily();
+            ->daily();
         $schedule->command('change-site-season')
-                ->everyMinute();
+            ->everyMinute();
         $schedule->command('distribute-birthday-rewards')
-                ->monthly();
+            ->monthly();
+        $schedule->command('restock-shops')
+            ->daily();
+        $schedule->command('update-timed-stock')
+            ->everyMinute();
+        $schedule->command('check-pet-drops')
+            ->everyMinute();
     }
 
     /**
