@@ -78,9 +78,9 @@ class AddSiteSettings extends Command {
         $this->addSiteSetting('stamina_per_object', 15, 'Max stamina per user / character. May take a bit for every user / character to reflect this change.');
 
         $this->addSiteSetting('is_maintenance_mode', 0, '0: Site is normal, 1: Users without the Has Maintenance Access power will be redirected to the home page.');
-        
+
         $this->addSiteSetting('event_currency', 1, 'ID of the currency used for events.');
-        
+
         $this->addSiteSetting('birthday_item', 1, 'ID of item to be granted to a user on their birth month. Suggestion is to set this to a box type item.');
 
         $this->addSiteSetting('site_season', 0, 'ID of the season the site is currently experiencing.');

@@ -264,7 +264,7 @@ Route::group(['prefix' => 'designs', 'namespace' => 'Characters'], function () {
     Route::post('{id}/delete', 'DesignController@postDelete');
 });
 
-Route::group(['prefix' => 'event-tracking'], function() {
+Route::group(['prefix' => 'event-tracking'], function () {
     Route::post('team/{id}', 'EventController@postJoinTeam');
 });
 
@@ -277,18 +277,16 @@ Route::group(['prefix' => 'shops'], function () {
     Route::get('history', 'ShopController@getPurchaseHistory');
 });
 
-
 /**************************************************************************************************
     Dailies
 **************************************************************************************************/
 
-Route::group(['prefix' => __('dailies.dailies')], function() {
+Route::group(['prefix' => __('dailies.dailies')], function () {
     // throttle requests to 1 per ~2 seconds
     Route::middleware('throttle:1,0.02')->group(function () {
         Route::post('{id}', 'DailyController@postRoll');
     });
 });
-
 
 /**************************************************************************************************
     Comments
@@ -307,7 +305,7 @@ Route::group(['prefix' => 'comments', 'namespace' => 'Comments'], function () {
     Advent Calendars
 **************************************************************************************************/
 
-Route::group(['prefix' => 'advent-calendars'], function() {
+Route::group(['prefix' => 'advent-calendars'], function () {
     Route::get('{id}', 'AdventController@getAdvent');
     Route::post('{id}', 'AdventController@postClaimPrize');
 });

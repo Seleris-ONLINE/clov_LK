@@ -315,7 +315,7 @@ Route::group(['prefix' => 'data', 'namespace' => 'Data', 'middleware' => 'power:
     Route::post('prompts/create', 'PromptController@postCreateEditPrompt');
     Route::post('prompts/edit/{id?}', 'PromptController@postCreateEditPrompt');
     Route::post('prompts/delete/{id}', 'PromptController@postDeletePrompt');
-    
+
     // DAILIES
     Route::get('dailies', 'DailyController@getIndex');
     Route::get('dailies/create', 'DailyController@getCreateDaily');
@@ -324,8 +324,8 @@ Route::group(['prefix' => 'data', 'namespace' => 'Data', 'middleware' => 'power:
     Route::post('dailies/create', 'DailyController@postCreateEditDaily');
     Route::post('dailies/edit/{id?}', 'DailyController@postCreateEditDaily');
     Route::post('dailies/delete/{id}', 'DailyController@postDeleteDaily');
-    Route::post('dailies/sort', 'DailyController@postSortDaily'); 
-    
+    Route::post('dailies/sort', 'DailyController@postSortDaily');
+
     // ADVENT CALENDARS
     Route::get('advent-calendars', 'AdventController@getAdventIndex');
     Route::get('advent-calendars/create', 'AdventController@getCreateAdvent');
@@ -436,7 +436,7 @@ Route::group(['prefix' => 'grants', 'namespace' => 'Users', 'middleware' => 'pow
 });
 
 // EVENT SETTINGS
-Route::group(['prefix' => 'event-settings', 'middleware' => 'power:edit_inventories'], function() {
+Route::group(['prefix' => 'event-settings', 'middleware' => 'power:edit_inventories'], function () {
     Route::get('/', 'EventController@getEventSettings');
     Route::get('clear', 'EventController@getClearEventCurrency');
     Route::post('clear', 'EventController@postClearEventCurrency');
@@ -449,7 +449,7 @@ Route::group(['prefix' => 'pets', 'middleware' => 'power:edit_inventories'], fun
 });
 
 // MASTERLIST
-Route::group(['prefix' => 'masterlist', 'namespace' => 'Characters', 'middleware' => 'power:manage_characters'], function() {
+Route::group(['prefix' => 'masterlist', 'namespace' => 'Characters', 'middleware' => 'power:manage_characters'], function () {
     Route::get('create-character', 'CharacterController@getCreateCharacter');
     Route::post('create-character', 'CharacterController@postCreateCharacter');
 

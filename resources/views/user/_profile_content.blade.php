@@ -84,11 +84,11 @@
             @endif
         </div>
     </div>
-    @if(Settings::get('event_teams') && $user->settings->team)
+    @if (Settings::get('event_teams') && $user->settings->team)
         <div class="col-md-2 text-center">
             <a href="{{ url('event-tracking') }}">
-                @if($user->settings->team->has_image)
-                    <img src="{{ $user->settings->team->imageUrl }}" class="mw-100"/>
+                @if ($user->settings->team->has_image)
+                    <img src="{{ $user->settings->team->imageUrl }}" class="mw-100" />
                 @endif
                 <h5>{{ $user->settings->team->name }}</h5>
             </a>
