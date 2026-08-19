@@ -29,6 +29,7 @@ use App\Models\Submission\Submission;
 use App\Models\WorldExpansion\Faction;
 use App\Models\WorldExpansion\FactionRankMember;
 use App\Models\WorldExpansion\Location;
+use App\Models\Theme;
 use App\Traits\Commenter;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -47,7 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail {
      * @var array
      */
     protected $fillable = [
-        'name', 'alias', 'rank_id', 'email', 'email_verified_at', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'birthday',
+        'name', 'alias', 'rank_id', 'email', 'email_verified_at', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'theme_id', 'decorator_theme_id', 'birthday',
         'is_deactivated', 'deactivater_id',
         'home_id', 'home_changed', 'faction_id', 'faction_changed',
     ];
@@ -125,6 +126,27 @@ class User extends Authenticatable implements MustVerifyEmail {
      */
     public function settings() {
         return $this->hasOne(UserSettings::class);
+    }
+
+    /**
+     * Get user theme.
+     */
+    public function theme() {
+        return $this->belongsTo(Theme::class);
+    }
+
+    /**
+     * Get user decorator .
+     */
+    public function decoratorTheme() {
+        return $this->belongsTo(Theme::class, 'decorator_theme_id');
+    }
+
+    /**
+     * Get User Granted Themes.
+     */
+    public function themes() {
+        return $this->belongsToMany(Theme::class, 'user_themes')->withPivot('id');
     }
 
     /**
@@ -317,6 +339,21 @@ class User extends Authenticatable implements MustVerifyEmail {
         ACCESSORS
 
      **********************************************************************************************/
+
+    /**
+     * Checks if the user has the named recipe.
+     *
+     * @param mixed $theme_id
+     *
+     * @return bool
+     */
+    public function hasTheme($theme_id) {
+        $theme = Theme::find($theme_id);
+        $user_has = $this->recipes && $this->recipes->contains($theme);
+        $default = $theme->is_user_selectable;
+
+        return $default ? true : $user_has;
+    }
 
     /**
      * Get the user's alias.
